@@ -1,21 +1,20 @@
 #!/usr/bin/env python3
+"""
+This module defines a function `index_range` for calculating
+pagination indices.
+"""
+
 
 def index_range(page: int, page_size: int) -> tuple[int, int]:
     """
-        Returns a tuple containing the start and end index of the page
-        for the given pagination parameters.
+    Calculates the start and end index for a given page and page size.
 
-        vim
-        Copy
-        Page numbers are 1-indexed, i.e. the first page is page 1.
+    Args:
+        page (int): The page number (1-indexed).
+        page_size (int): The number of items per page.
 
-        Args:
-            page (int): The page number (1-indexed).
-            page_size (int): The number of items per page.
-
-        Returns:
-            tuple[int, int]: A tuple containing the start and end
-            index of the page.
+    Returns:
+        A tuple containing the start and end index for the current page.
     """
     if page <= 0:
         raise ValueError("Page number must be positive")
