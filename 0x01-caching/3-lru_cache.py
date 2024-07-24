@@ -51,4 +51,8 @@ class LRUCache(BaseCaching):
             The value linked to the key, or None if key
             is None or not found.
         """
+        if key is None or key not in self.cache_data:
+            return None
+        self.order.remove(key)
+        self.order.append(key)
         return self.cache_data.get(key)
