@@ -3,9 +3,10 @@
 This module defines a function `index_range` for calculating
 pagination indices.
 """
+from typing import Tuple
 
 
-def index_range(page: int, page_size: int) -> tuple[int, int]:
+def index_range(page: int, page_size: int) -> Tuple[int, int]:
     """
     Calculates the start and end index for a given page and page size.
 
@@ -16,9 +17,6 @@ def index_range(page: int, page_size: int) -> tuple[int, int]:
     Returns:
         A tuple containing the start and end index for the current page.
     """
-    if page <= 0:
-        raise ValueError("Page number must be positive")
-
-    start_index = (page - 1) * page_size
-    end_index = start_index + page_size
-    return (start_index, end_index)
+    start = (page - 1) * page_size
+    end = start + page_size
+    return (start, end)
